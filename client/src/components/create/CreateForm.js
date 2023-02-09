@@ -56,8 +56,8 @@ const CreateForm = () => {
   return (
     <div>
       <div className="container">
-        <div className="row">
-          <div className="col-md-4">
+        <div className="row ">
+          <div className="col-md-4 p-3">
             <label>Product Name</label>
             <input
               ref={(input) => (ProductName = input)}
@@ -65,7 +65,7 @@ const CreateForm = () => {
               className="form-control"
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 p-3">
             <label>Product Code</label>
             <input
               ref={(input) => (ProductCode = input)}
@@ -73,7 +73,7 @@ const CreateForm = () => {
               className="form-control"
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 p-3">
             <label>Product Image</label>
             <input
               ref={(input) => (Img = input)}
@@ -81,7 +81,7 @@ const CreateForm = () => {
               className="form-control"
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 p-3">
             <label>Product UnitPrice</label>
             <input
               ref={(input) => (UnitPrice = input)}
@@ -89,7 +89,7 @@ const CreateForm = () => {
               className="form-control"
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 p-3">
             <label>Product Qty</label>
             <input
               ref={(input) => (Qty = input)}
@@ -97,7 +97,7 @@ const CreateForm = () => {
               className="form-control"
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 p-3">
             <label>TotalPrice</label>
             <input
               ref={(input) => (TotalPrice = input)}
@@ -108,7 +108,7 @@ const CreateForm = () => {
         </div>
         <br />
         <div className="row">
-          <div className="col-md-4 p-2">
+          <div className="col-md-4 p-2 p-3">
             <button onClick={SaveData} className="btn btn-primary w-100 ">
               Save
             </button>
