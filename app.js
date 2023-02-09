@@ -35,18 +35,19 @@ const limiter = rateLimit({
 app.use(limiter);
 
 //Mongo DB Database Connection
-let URI = "";
-let OPTION = { user: "", pass: "", autoIndex: true };
-mongoose.set(URI, OPTION, (error) => {
+let URI =
+  "mongodb+srv://<username>:<password>@cluster0.bglwbam.mongodb.net/CRUD?retryWrites=true&w=majority";
+let OPTION = { user: "testuser123", pass: "testuser123", autoIndex: true };
+mongoose.connect(URI, OPTION, (error) => {
   console.log("Connection Success");
   console.log(error);
 });
 
 //Managing Frontend Api Routing
-app.use(express.static("client/build"));
-app.get("*", function (req, res) {
-  req.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
+// app.use(express.static("client/build"));
+// app.get("*", function (req, res) {
+//   req.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+// });
 
 //Managing Backend Api Routing
 app.use("/api/v1", router);
