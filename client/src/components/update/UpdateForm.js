@@ -1,7 +1,7 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import FullScreenLoader from "../common/FullScreenLoader";
 import {ErrorToast, isEmpty, SuccessToast} from "../../helper/ValidatioHelper";
-import {Create} from "../../apiservices/CRUDServices";
+import { ReadByID, Update} from "../../apiservices/CRUDServices";
 
 const UpdateForm = (props) => {
     let ProductName,
@@ -10,6 +10,7 @@ const UpdateForm = (props) => {
         UnitPrice,
         Qty,
         TotalPrice,Loader = useRef();
+
     const UpdateData = () => {
         let Product_Name = ProductName.value;
         let Product_Code = ProductCode.value;
@@ -37,22 +38,29 @@ const UpdateForm = (props) => {
         }
         else {
             Loader.classList.remove("d-none")
-            Create(Product_Name,Product_Code,Product_Img,Unit_Price,Product_Qty,Total_Price).then((Result)=>{
+            Update(props.id,Product_Name,Product_Code,Product_Img,Unit_Price,Product_Qty,Total_Price).then((Result)=>{
                 Loader.classList.add("d-none")
                 if(Result===true){
-                    SuccessToast("Data Save Success")
-                    ProductName.value = ""
-                    ProductCode.value= ""
-                    Img.value= ""
-                    UnitPrice.value= ""
-                    Qty.value= ""
-                    TotalPrice.value= ""
+                    SuccessToast("Data Update Success")
+                    props.history.push("/")
                 }else {
                     ErrorToast("Request Fail Try Again")
                 }
             })
         }
     };
+
+    useEffect(()=>{
+        ReadByID(props.id).then((Result)=>{
+            ProductName.value = Result[0]['ProductName']
+            ProductCode.value= Result[0]['ProductCode']
+            Img.value= Result[0]['Img']
+            UnitPrice.value= Result[0]['UnitPrice']
+            Qty.value= Result[0]['Qty']
+            TotalPrice.value= Result[0]['TotalPrice']
+        })
+    })
+
     return (
         <div>
             <div className="container">
@@ -110,7 +118,7 @@ const UpdateForm = (props) => {
                 <div className="row">
                     <div className="col-md-4 p-2 p-3">
                         <button onClick={UpdateData} className="btn btn-primary w-100 ">
-                            Save
+                            Update
                         </button>
                     </div>
                 </div>

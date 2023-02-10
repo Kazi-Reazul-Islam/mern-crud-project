@@ -46,6 +46,23 @@ export function Read() {
       return false;
     });
 }
+
+export function ReadByID(id) {
+    let URL = "/api/v1/ReadProductByID/"+id;
+    return axios
+        .get(URL)
+        .then((res) => {
+            if (res.status === 200) {
+                return res.data["data"];
+            } else {
+                return false;
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            return false;
+        });
+}
 export function Delete(id){
     let URL="/api/v1/DeleteProduct/"+id;
     return  axios.post(URL).then((res)=>{
@@ -60,10 +77,18 @@ export function Delete(id){
         return false;
     });
 }
-export function Update(id) {
-  let URL = "/api/v1/UpdateProduct" + id;
+export function Update(
+    id,
+    ProductName,
+    ProductCode,
+    Img,
+    UnitPrice,
+    Qty,
+    TotalPrice
+) {
+  let URL = "/api/v1/UpdateProduct/" + id;
   let PostBody = {
-    ProductName: ProductName,
+      ProductName: ProductName,
     ProductCode: ProductCode,
     Img: Img,
     UnitPrice: UnitPrice,

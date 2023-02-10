@@ -25,6 +25,20 @@ exports.ReadProduct = (req, res) => {
   });
 };
 
+//Read Product by ID
+exports.ReadProductByID = (req, res) => {
+  let id=req.params.id
+  let Query = {_id:id}
+  let Projection = "ProductName ProductCode Img UnitPrice Qty TotalPrice";
+  ProductsModel.find(Query, Projection,(err, data) => {
+    if (err) {
+      res.status(400).json({status: "fail", data: err})
+    } else {
+      res.status(200).json({status: "Success", data: data})
+    }
+  })
+}
+
 //U = Update
 exports.UpdateProduct = (req, res) => {
   let id = req.params.id;

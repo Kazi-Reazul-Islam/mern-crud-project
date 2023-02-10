@@ -7,6 +7,7 @@ router.post("/CreateProduct", ProductsController.CreateProduct);
 
 //R = Read
 router.get("/ReadProduct", ProductsController.ReadProduct);
+router.get("/ReadProductByID/:id", ProductsController.ReadProductByID);
 
 //U = Update
 router.post("/UpdateProduct/:id", ProductsController.UpdateProduct);
