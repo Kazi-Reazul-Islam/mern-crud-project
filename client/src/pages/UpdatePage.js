@@ -1,12 +1,14 @@
 import React from 'react';
 import UpdateForm from "../components/update/UpdateForm";
 import AppNavBar from "../components/common/AppNavBar";
-
+import {useParams} from "react-router";
 const UpdatePage = () => {
+    const params = useParams()
+    JSON.stringify(params)
     return (
         <div>
             <AppNavBar />
-            <UpdateForm />
+            <UpdateForm id={params['id']}/>
         </div>
     );
 };

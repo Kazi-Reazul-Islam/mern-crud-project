@@ -25,8 +25,7 @@ const ListTable = (props) => {
     }
 
     const UpdateItem = (id)=>{
-        alert(id)
-    }
+        props.history.push("/update/"+id)    }
 
     if(DataList.length>0){
         return (

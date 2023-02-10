@@ -14,7 +14,7 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/" render={(props)=><ReadPage{...props} key={Date.now()} />}/>
             <Route exact path="/create" render={(props)=><CreatePage{...props} key={Date.now()} />} />
-            <Route exact path="/update" render={(props)=><UpdatePage{...props} key={Date.now()} />}/>
+            <Route exact path="/update/:id" render={(props)=><UpdatePage{...props} key={Date.now()} />}/>
           </Switch>
         </BrowserRouter>
       </Fragment>
