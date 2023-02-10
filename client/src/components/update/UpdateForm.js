@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from "react";
 import FullScreenLoader from "../common/FullScreenLoader";
 import {ErrorToast, isEmpty, SuccessToast} from "../../helper/ValidatioHelper";
 import { ReadByID, Update} from "../../apiservices/CRUDServices";
+import {withRouter} from "react-router";
 
 const UpdateForm = (props) => {
     let ProductName,
@@ -131,4 +132,4 @@ const UpdateForm = (props) => {
     );
 };
 
-export default UpdateForm;
+export default withRouter(UpdateForm);

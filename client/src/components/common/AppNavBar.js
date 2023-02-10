@@ -14,11 +14,11 @@ const AppNavBar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link>
-                <NavLink to="/">List</NavLink>
+                <NavLink to="/">Product List</NavLink>
               </Nav.Link>
 
               <Nav.Link>
-                <NavLink to="/create">Create</NavLink>
+                <NavLink to="/create">Create Product</NavLink>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
